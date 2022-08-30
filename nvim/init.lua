@@ -1,0 +1,3 @@
+require("eriley")
+
+print('hi')

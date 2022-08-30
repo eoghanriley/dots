@@ -1,19 +1,9 @@
-################################################
-#  ██████╗██████╗ ██╗   ██╗██╗     ██╗ █████╗  #
-# ██╔════╝██╔══██╗╚██╗ ██╔╝██║     ██║██╔══██╗ #
-# ██║     ██████╔╝ ╚████╔╝ ██║     ██║███████║ #
-# ██║     ██╔══██╗  ╚██╔╝  ██║     ██║██╔══██║ #
-# ╚██████╗██║  ██║   ██║   ███████╗██║██║  ██║ #
-#  ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝╚═╝  ╚═╝ #
-################################################
-
-# Set the window Width and Height in console columns.
-# The window size will change if the font size changes.
 window:
   dimensions:
     columns: 110
     lines: 30
   decorations: full
+  opacity: 1
   startup_mode: Windowed
   title: "Alacritty Terminal"
   dynamic_title: true
@@ -21,88 +11,74 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-# Font family and style
+
+scrolling:
+  history: 50000
+  multiplier: 3
+
 font:
   normal:
-    family: "MesloLGS NF"
+    family: 'MesloLGS NF'
     style: Regular
   bold:
-    family: "MesloLGS NF"
+    family: 'MesloLGS NF'
     style: Bold
   italic:
-    family: "MesloLGS NF"
+    family: 'MesloLGS NF'
     style: italic
   bold_italic:
-    family: "MesloLGS NF"
+    family: 'MesloLGS NF'
     style: Bold Italic
   size: 12.0
   offset:
     x: 0
     y: 0
   draw_bold_text_with_bright_colors: false
-# Background opacity from 0.0 transparent, 1.0 Opaque
-window:
-  opacity: 0.4
-# Terminal colors
-colors:
-  primary:
-    background: '#000000'
-    foreground: '#FFFFFF'
-  cursor:
-    cursor: '#00b8ff'
-  search:
-    matches:
-      foreground: '#000000'
-      background: '#EA80FC'
-    focus_match:
-      foreground: '#000000'
-      background: '#E040FB'
-    bar:
-      foreground: '#B388FF'
-      background: '#121212'
-  selection:
-    text: '#EA80FC'
-    background: '#121212'
-  normal:
-    black: '#121212'
-    red: '#ff5252'
-    green: '#8BC34A'
-    yellow: '#FFFF00'
-    blue: '#82B1FF'
-    magenta: '#EA80FC'
-    cyan: '#84FFFF'
-    white: '#FFFFFF'
-  bright:
-    black: '#363636'
-    red: '#ef9a9a'
-    green: '#A5D6A7'
-    yellow: '#FFF59D'
-    blue: '#90CAF9'
-    magenta: '#CE93D8'
-    cyan: '#80DEEA'
-    white: '#FFFFFF'
-# Cursor styling
-cursor:
-  style: Beam
-  thickness: 0.2
-  unfocused_hollow: false
-  blink_interval: 750
 
-################################################################################
-# ███████╗██╗  ██╗ ██████╗ ██████╗ ████████╗ ██████╗██╗   ██╗████████╗███████╗ #
-# ██╔════╝██║  ██║██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██║   ██║╚══██╔══╝██╔════╝ #
-# ███████╗███████║██║   ██║██████╔╝   ██║   ██║     ██║   ██║   ██║   ███████╗ #
-# ╚════██║██╔══██║██║   ██║██╔══██╗   ██║   ██║     ██║   ██║   ██║   ╚════██║ #
-# ███████║██║  ██║╚██████╔╝██║  ██║   ██║   ╚██████╗╚██████╔╝   ██║   ███████║ #
-# ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝    ╚═╝   ╚══════╝ #
-################################################################################                                                                            
+background_opacity: 0.9
 
-# Mouse
-mouse_bindings:
- - { mouse: Right, action: Paste }
-
-# Keyboard
 key_bindings:
- - { key: C, mods: Control|Shift, action: Copy }
- - { key: V, mods: Control|Shift, action: Paste }
- - { key: C, mods: Control, mode: Vi, action: ClearSelection }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: T, mods: Alt, chars: "\x1bt" }
+  - { key: W, mods: Alt|Shift, chars: "\x1bW" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: N, mods: Alt, chars: "\x1bn" }
+  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: E, mods: Alt, chars: "\x1be" }
+  - { key: X, mods: Alt|Shift, chars: "\x1bX" }
+
+scheme: &tokyonight_night
+  primary:
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
+
+  # Normal colors
+  normal:
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
+
+  # Bright colors
+  bright:
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+
+colors: *tokyonight_night
